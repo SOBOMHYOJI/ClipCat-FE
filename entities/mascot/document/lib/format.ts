@@ -3,8 +3,10 @@
 export function cleanText(text: string): string {
   return text
     .trim()
+    .replace(/\\n/g, "\n") // 문자열 "\n"을 실제 줄바꿈으로 변환
     .replace(/\r\n|\r/g, "\n")
-    .replace(/\n{3,}/g, "\n\n");
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/(\*\*[^*]+\*\*)/g, "\n\n$1\n")
 }
 
 // 문서 객체를 안전하게 초기화
