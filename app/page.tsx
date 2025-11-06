@@ -15,7 +15,7 @@ export default function Page() {
           <p className="mt-6 text-[18px] leading-7 text-muted">
             clipcat은 다문화 학부모님을 위한
             <br />
-            '쉬운 한국어' 변환기이자 1:1 학습 서비스입니다.
+            &lsquo;쉬운 한국어&rsquo; 변환기이자 1:1 학습 서비스입니다.
           </p>
 
           <div className="mt-8 flex items-center gap-4">
