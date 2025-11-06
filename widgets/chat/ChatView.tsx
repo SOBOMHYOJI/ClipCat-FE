@@ -18,7 +18,7 @@ export default function ChatView() {
             <div className="h-[520px] overflow-y-auto p-6">
               <MessageList />
             </div>
-            <div className="border-t border-gray-200 p-4">
+            <div className=" border-gray-200 p-4">
               <ChatInput />
             </div>
           </div>
