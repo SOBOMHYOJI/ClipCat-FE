@@ -46,7 +46,7 @@ export default function TranslationPopup({
           <p className="text-sm font-semibold text-gray-700 mb-1">
             선택한 부분:
           </p>
-          <p className="text-base text-gray-900 bg-yellow-50 px-2 py-1 rounded">
+          <p className="text-base text-gray-900 px-2 py-1 rounded">
             {selectedText}
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function TranslationPopup({
               <span className="text-sm">번역 중...</span>
             </div>
           ) : translation ? (
-            <p className="text-base text-blue-600 bg-blue-50 px-2 py-1 rounded">
+            <p className="text-base text-[#58CC6C] bg-blue-50 px-2 py-1 rounded">
               {translation}
             </p>
           ) : (
