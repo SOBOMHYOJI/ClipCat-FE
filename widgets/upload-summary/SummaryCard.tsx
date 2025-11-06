@@ -44,6 +44,6 @@ export default function SummaryCard({
           </div>,
           document.body
         )}
-    </div>
+    </>
   );
 }
