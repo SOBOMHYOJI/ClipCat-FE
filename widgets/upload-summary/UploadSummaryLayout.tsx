@@ -1,31 +1,40 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import BlinkingMascot from "@/entities/mascot/ui/BlinkingMascot";
 import SectionHeader from "./SectionHeader";
 import SummaryCard from "./SummaryCard";
-import { DocumentSummary } from "@/entities/mascot/document/model/types";
+import { ChevronLeft } from "lucide-react";
+
 export default function UploadSummaryLayout() {
-  const [data, setData] = useState<DocumentSummary | null>(null);
+  const [easyText, setEasyText] = useState<string | null>(null);
+
+  const handleBack = () => window.history.back();
 
   useEffect(() => {
     const raw = sessionStorage.getItem("summary");
     if (raw) {
-      queueMicrotask(() => {
-        setData(JSON.parse(raw));
-      });
+      try {
+        const parsed = JSON.parse(raw);
+        setEasyText(parsed.easy_text); // easy_text만 추출
+      } catch {
+        setEasyText(raw); // 혹시 JSON 파싱 실패 시 그대로 사용
+      }
     }
   }, []);
 
   return (
-    <section className="mx-auto max-w-[1120px] px-6 py-10">
-      <SectionHeader title="요약 결과" />
-      <div className="mt-4 grid gap-6 md:grid-cols-[1fr_280px]">
-        <SummaryCard data={data} />
-        <div className="relative">
-          <BlinkingMascot
-            width={220}
-            className="md:absolute md:right-0 md:bottom-[-8px]"
-          />
+    <section className="mt-[-40px] mx-auto max-w-[1200px] px-6">
+      <div className="flex items-center gap-2">
+        <ChevronLeft onClick={handleBack} className="m-0 p-0" />
+        <SectionHeader title="요약 결과" />
+      </div>
+      <div className="mt-4 relative">
+        <div className="w-full">
+          <SummaryCard data={easyText} />
+        </div>
+        <div className="absolute right-0 bottom-[-100px]">
+          <BlinkingMascot width={220} />
         </div>
       </div>
     </section>
