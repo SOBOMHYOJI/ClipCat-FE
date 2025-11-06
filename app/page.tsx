@@ -1,3 +1,5 @@
-export default function Home() {
-  return <div>hi</div>;
+import MascotHero from "@/widgets/mascot/MascotHero";
+
+export default function Page() {
+  return <MascotHero />;
 }
