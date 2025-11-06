@@ -7,15 +7,20 @@ type Props = {
   src?: string;
   faceColor?: string;
   width?: number;
+  className?: string;
+  style?: React.CSSProperties;
 };
 
 export default function BlinkingMascot({
   src = "/mascot.png",
   faceColor = DEFAULT_FACE_COLOR,
   width = 360,
+  className,
+  style,
 }: Props) {
   return (
     <div
+      className={className}
       style={
         {
           position: "relative",
@@ -23,6 +28,7 @@ export default function BlinkingMascot({
           width,
           aspectRatio: "4 / 5",
           ["--face"]: faceColor,
+          ...style,
         } as React.CSSProperties
       }
     >
